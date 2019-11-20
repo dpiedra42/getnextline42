@@ -6,7 +6,7 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:19 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/20 15:39:02 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/20 15:52:50 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,6 @@
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE (32)
 #endif 
-
-int	check_new(char *str)
-{
-	int i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i] != '\0')
-	{
-		if (str[i] == '\n')
-			return (1);
-		else
-			i++;
-	}
-	return (0);
-}
 
 int	get_next_line(int fd, char **line)
 {
@@ -43,10 +26,13 @@ int	get_next_line(int fd, char **line)
 		return (-1);
 	if (!(buf = malloc(sizeof(char) * BUFFER_SIZE + 1)))
 		return (-1);
-	while ((check_new(str) != 1) && ((red = read(fd, buf, BUFFER_SIZE) < 0 )))
+	if ((red = read(fd, buf, BUFFER_SIZE) == -1))
+		return (-1);
+	while ((check_new(str) != 1) && red > 0)
 	{
-		if (red < 0)
-			return (-1);
+		if ((red = read(fd, buf, BUFFER_SIZE) == -1))
+		return (-1);
+		
 	}
 	return (1);
 }

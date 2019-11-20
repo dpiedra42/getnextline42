@@ -6,7 +6,7 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:22 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/20 15:39:50 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/20 15:56:10 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int	get_next_line(int fd, char **line);
-int	check_new(char *str);
+int		get_next_line(int fd, char **line);
+int		check_new(char *str);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
