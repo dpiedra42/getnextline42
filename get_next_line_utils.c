@@ -6,7 +6,7 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:15 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/20 16:57:34 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/20 16:59:37 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,26 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (sjoin);
 }
 
+char	*get_line(char *str)
+{
+	int i;
+	char *newstr;
+
+	i = 0;
+	while (str[i] != '\n' && str[i] != '\0')
+		i++;
+	if (!(newstr = malloc(sizeof(char) * i + 1)))
+		return (NULL);
+	i = 0;
+	while (newstr[i] != '\0')
+	{
+		newstr[i] = str[i];
+		i++;
+	}
+	newstr[i] = '\0';
+	return (newstr);
+}
+
 size_t	ft_strlen(const char *str)
 {
 	size_t i;
@@ -77,24 +97,4 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		while (len--)
 			*(dest + len) = *(source + len);
 	return (dst);
-}
-
-char	*get_line(char *str)
-{
-	int i;
-	char *newstr;
-
-	i = 0;
-	while (str[i] != '\n' && str[i] != '\0')
-		i++;
-	if (!(newstr = malloc(sizeof(char) * i + 1)))
-		return (NULL);
-	i = 0;
-	while (newstr[i] != '\0')
-	{
-		newstr[i] = str[i];
-		i++;
-	}
-	newstr[i] = '\0';
-	return (newstr);
 }
