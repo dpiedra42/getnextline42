@@ -6,13 +6,13 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:15 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/20 15:55:51 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/20 16:57:34 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	check_new(char *str)
+int		check_new(char *str)
 {
 	int i;
 
@@ -45,4 +45,56 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memmove(sjoin + len1, s2, len2);
 	sjoin[len1 + len2] = '\0';
 	return (sjoin);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	unsigned char *dest;
+	unsigned char *source;
+
+	dest = (unsigned char *)dst;
+	source = (unsigned char *)src;
+	if (dest < source)
+	{
+		while (len--)
+		{
+			*dest = *source;
+			dest++;
+			source++;
+		}
+	}
+	else if (dest > source)
+		while (len--)
+			*(dest + len) = *(source + len);
+	return (dst);
+}
+
+char	*get_line(char *str)
+{
+	int i;
+	char *newstr;
+
+	i = 0;
+	while (str[i] != '\n' && str[i] != '\0')
+		i++;
+	if (!(newstr = malloc(sizeof(char) * i + 1)))
+		return (NULL);
+	i = 0;
+	while (newstr[i] != '\0')
+	{
+		newstr[i] = str[i];
+		i++;
+	}
+	newstr[i] = '\0';
+	return (newstr);
 }
