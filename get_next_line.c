@@ -6,7 +6,7 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:19 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/20 18:29:13 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/20 18:32:58 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ char	del_line(char *s)
 
 	i = 0;
 	// not sure about '\0' while (s[i] != '\n' && s[i] != '\0')
-		i++;
+	//	i++;
 	// do i need to add the \n i = i + 1;
-	if(!(newstr = malloc(sizeof(char) * (ft_strlen(s)) - i + 1)))
+	if (!(newstr = malloc(sizeof(char) * (ft_strlen(s)) - i + 1)))
 		return (NULL);
 	j = 0;
 	while (s[i] != '\0')
@@ -37,30 +37,9 @@ char	del_line(char *s)
 	}
 	newstr[j] = '\0';
 	return (newstr);
-
 }
 
-char	*get_line(char *s1)
-{
-	int		i;
-	char	*line;
-
-	i = 0;
-	while (s1[i] != '\n' && s1[i] != '\0')
-		i++;
-	if (!(line = malloc(sizeof(char) * i + 1)))
-		return (NULL);
-	i = 0;
-	// not sure about '\0' while (s1[i] != '\n' && s1[i] != '\0')
-	{
-		line[i] = s1[i];
-		i++;
-	}
-	line[i] = '\0';
-	return (line);
-}
-
-int	get_next_line(int fd, char **line)
+int		get_next_line(int fd, char **line)
 {
 	char		*buf;
 	static char	*str;
@@ -81,7 +60,7 @@ int	get_next_line(int fd, char **line)
 		buf[red] = '\0';
 		str = ft_strjoin(str, buf);
 	}
-	free (buf);
+	free(buf);
 	*line = get_line(str);
 	str = del_line(str);
 	if (red == 0)
@@ -89,5 +68,5 @@ int	get_next_line(int fd, char **line)
 	return (1);
 }
 
-// I DONT KNOW WHAT TO FREE? buf (yes), not sure about str...  
+// I DONT KNOW WHAT TO FREE? buf (yes), not sure about str...
 //malloc str? done in strjoin.

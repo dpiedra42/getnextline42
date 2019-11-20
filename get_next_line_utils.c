@@ -6,7 +6,7 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:15 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/20 17:58:01 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/20 18:32:56 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,26 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memmove(sjoin + len1, s2, len2);
 	sjoin[len1 + len2] = '\0';
 	return (sjoin);
+}
+
+char	*get_line(char *s1)
+{
+	int		i;
+	char	*line;
+
+	i = 0;
+	while (s1[i] != '\n' && s1[i] != '\0')
+		i++;
+	if (!(line = malloc(sizeof(char) * i + 1)))
+		return (NULL);
+	i = 0;
+	// not sure about '\0' while (s1[i] != '\n' && s1[i] != '\0')
+	{
+		line[i] = s1[i];
+		i++;
+	}
+	line[i] = '\0';
+	return (line);
 }
 
 size_t	ft_strlen(const char *str)
