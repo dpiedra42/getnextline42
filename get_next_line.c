@@ -6,7 +6,7 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:19 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/20 16:57:42 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/20 17:31:06 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE (32)
-#endif 
+#endif
 
 int	get_next_line(int fd, char **line)
 {
@@ -33,7 +33,7 @@ int	get_next_line(int fd, char **line)
 	while ((check_new(str) != 1) && red > 0)
 	{
 		if ((red = read(fd, buf, BUFFER_SIZE) == -1))
-		return (-1);
+			return (-1);
 		buf[red] = '\0';
 		str = ft_strjoin(str, buf);
 	}

@@ -6,7 +6,7 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:15 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/20 16:59:37 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/20 17:31:05 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 char	*get_line(char *str)
 {
-	int i;
-	char *newstr;
+	int		i;
+	char	*newstr;
 
 	i = 0;
 	while (str[i] != '\n' && str[i] != '\0')
