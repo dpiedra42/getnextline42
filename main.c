@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/18 18:39:22 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/21 13:56:36 by dpiedra          ###   ########.fr       */
+/*   Created: 2019/11/21 11:01:44 by dpiedra           #+#    #+#             */
+/*   Updated: 2019/11/21 17:26:22 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "get_next_line.h"
+#include <fcntl.h>
+#include <stdio.h>
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
+int main()
+{
+	char *ptr;
+	int fd;
+	int fd2 = 0;
+	int result;
 
-int		get_next_line(int fd, char **line);
-int		check_new(char *str);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*get_line(char *s1);
-size_t	ft_strlen(const char *str);
-void	*ft_memmove(void *dst, const void *src, size_t len);
-
-#endif
+	fd = open("tests.txt", O_RDONLY);
+	while ((result = get_next_line(fd, &ptr)) > 0)
+	{
+		printf("String is: %s\n", ptr);
+		printf("This is my return: %d\n", result);
+		free(ptr);
+	}
+	
+	printf("String is: %s\n", ptr);
+	printf("This is my return: %d\n", result);
+	free(ptr);
+}

@@ -6,7 +6,7 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:15 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/20 18:32:56 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/21 16:41:24 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len1;
 	size_t	len2;
 
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 		return (NULL);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
@@ -50,21 +50,21 @@ char	*ft_strjoin(char const *s1, char const *s2)
 char	*get_line(char *s1)
 {
 	int		i;
-	char	*line;
+	char	*lineread;
 
 	i = 0;
 	while (s1[i] != '\n' && s1[i] != '\0')
 		i++;
-	if (!(line = malloc(sizeof(char) * i + 1)))
+	if (!(lineread = malloc(sizeof(char) * i + 1)))
 		return (NULL);
 	i = 0;
-	// not sure about '\0' while (s1[i] != '\n' && s1[i] != '\0')
+	while (s1[i] != '\n' && s1[i] != '\0')
 	{
-		line[i] = s1[i];
+		lineread[i] = s1[i];
 		i++;
 	}
-	line[i] = '\0';
-	return (line);
+	lineread[i] = '\0';
+	return (lineread);
 }
 
 size_t	ft_strlen(const char *str)
@@ -72,6 +72,8 @@ size_t	ft_strlen(const char *str)
 	size_t i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i] != '\0')
 		i++;
 	return (i);

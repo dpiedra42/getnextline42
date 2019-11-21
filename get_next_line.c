@@ -6,26 +6,25 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:19 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/20 18:32:58 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/21 17:22:33 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE (32)
+# define BUFFER_SIZE (5)
 #endif
 
-char	del_line(char *s)
+char	*del_line(char *s)
 {
 	int		i;
 	int		j;
 	char	*newstr;
 
 	i = 0;
-	// not sure about '\0' while (s[i] != '\n' && s[i] != '\0')
-	//	i++;
-	// do i need to add the \n i = i + 1;
+	while (s[i] != '\n' && s[i] != '\0')
+		i++;
+	i = i + 1;
 	if (!(newstr = malloc(sizeof(char) * (ft_strlen(s)) - i + 1)))
 		return (NULL);
 	j = 0;
@@ -49,13 +48,11 @@ int		get_next_line(int fd, char **line)
 		return (-1);
 	if (!(buf = malloc(sizeof(char) * BUFFER_SIZE + 1)))
 		return (-1);
-	if ((red = read(fd, buf, BUFFER_SIZE) == -1))
-		return (-1);
-	if (red == 0)
-		return (0);
-	while ((check_new(str) != 1) && red > 0)
+	red = 1;
+	while ((red != 0) && (check_new(str) != 1))
 	{
-		if ((red = read(fd, buf, BUFFER_SIZE) == -1))
+		red = read(fd, buf, BUFFER_SIZE);
+		if (red == -1)
 			return (-1);
 		buf[red] = '\0';
 		str = ft_strjoin(str, buf);
@@ -67,6 +64,4 @@ int		get_next_line(int fd, char **line)
 		return (0);
 	return (1);
 }
-
-// I DONT KNOW WHAT TO FREE? buf (yes), not sure about str...
-//malloc str? done in strjoin.
+//free?
