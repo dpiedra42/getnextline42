@@ -6,7 +6,7 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:22 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/21 13:56:36 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/21 17:57:41 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 int		get_next_line(int fd, char **line);
 int		check_new(char *str);

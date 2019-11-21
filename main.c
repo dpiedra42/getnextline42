@@ -6,7 +6,7 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 11:01:44 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/21 17:51:47 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/21 18:01:19 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-int main(void)
+int	main(void)
 {
 	char	*ptr;
 	int		fd;
+	int		result;
 
 	fd = open("tests.txt", O_RDONLY);
-	int result = 1;
+	result = 1;
 	while (result)
 	{
 		result = get_next_line(fd, &ptr);
