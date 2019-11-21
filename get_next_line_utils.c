@@ -6,7 +6,7 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:15 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/21 16:41:24 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/21 17:45:34 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memmove(sjoin, s1, len1);
 	ft_memmove(sjoin + len1, s2, len2);
 	sjoin[len1 + len2] = '\0';
+	free((void *)s1);
 	return (sjoin);
 }
 

@@ -6,13 +6,13 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:19 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/21 17:22:33 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/21 17:48:47 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE (5)
+# define BUFFER_SIZE (1)
 #endif
 
 char	*del_line(char *s)
@@ -24,7 +24,8 @@ char	*del_line(char *s)
 	i = 0;
 	while (s[i] != '\n' && s[i] != '\0')
 		i++;
-	i = i + 1;
+	if (s[i] == '\n')
+		i = i + 1;
 	if (!(newstr = malloc(sizeof(char) * (ft_strlen(s)) - i + 1)))
 		return (NULL);
 	j = 0;
@@ -34,6 +35,7 @@ char	*del_line(char *s)
 		j++;
 		i++;
 	}
+	free(s);
 	newstr[j] = '\0';
 	return (newstr);
 }
@@ -64,4 +66,3 @@ int		get_next_line(int fd, char **line)
 		return (0);
 	return (1);
 }
-//free?
