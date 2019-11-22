@@ -6,11 +6,12 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:19 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/22 11:50:28 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/22 15:49:42 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE (1)
 #endif
@@ -57,12 +58,17 @@ int		get_next_line(int fd, char **line)
 		if (red == -1)
 			return (-1);
 		buf[red] = '\0';
+		printf("This is my buf: %s\n", buf);
 		str = ft_strjoin(str, buf);
 	}
 	free(buf);
 	*line = get_line(str);
 	str = del_line(str);
 	if (red == 0)
+	{
+		while(1)
+		{}
 		return (0);
+	}
 	return (1);
 }
