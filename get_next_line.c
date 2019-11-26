@@ -6,12 +6,11 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:19 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/26 12:26:12 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/26 12:28:37 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE (1)
 #endif
