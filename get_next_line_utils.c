@@ -6,11 +6,10 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:15 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/22 11:54:57 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/26 12:28:19 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "get_next_line.h"
 
 int		check_new(char *str)

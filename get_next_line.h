@@ -6,7 +6,7 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 18:39:22 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/21 17:57:41 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/26 12:28:17 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		get_next_line(int fd, char **line);
 int		check_new(char *str);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*get_line(char *s1);
+char	*del_line(char *s);
 size_t	ft_strlen(const char *str);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 
