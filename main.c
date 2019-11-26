@@ -6,7 +6,7 @@
 /*   By: dpiedra <dpiedra@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 11:01:44 by dpiedra           #+#    #+#             */
-/*   Updated: 2019/11/22 15:48:58 by dpiedra          ###   ########.fr       */
+/*   Updated: 2019/11/26 13:19:31 by dpiedra          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,4 @@ int	main(void)
 		printf("String is: %s\n", ptr);
 		free(ptr);
 	}
-	return (0);
 }
